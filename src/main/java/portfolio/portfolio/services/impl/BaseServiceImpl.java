@@ -23,7 +23,7 @@ public abstract class BaseServiceImpl<T extends Base, ID extends Serializable> i
 
     @Override
     public T getById(ID id) {
-        return (T) baseRepository.findById(id).orElseThrow(() ->
+        return baseRepository.findByIdAndIsActiveTrue(id).orElseThrow(() ->
                 new EntityNotFoundException("Entidad con ID #" + id + " no encontrada.")
         );
     }
@@ -43,7 +43,12 @@ public abstract class BaseServiceImpl<T extends Base, ID extends Serializable> i
     }
 
     @Override
-    public void delete(ID id) {
-        baseRepository.deleteById(id);
+    public void softDelete(ID id) {
+        T entity = baseRepository.findByIdAndIsActiveTrue(id).orElseThrow(() ->
+                new EntityNotFoundException("Entidad con ID #" + id + " no encontrada.")
+        );
+
+        entity.setActive(false);
+        baseRepository.save(entity);
     }
 }
