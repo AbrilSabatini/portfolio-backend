@@ -42,5 +42,6 @@ public class User extends Base {
     private List<Project> projects = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("order_index ASC")
     private List<AboutSection> aboutSections = new ArrayList<>();
 }

@@ -16,5 +16,4 @@ public class AboutSectionResponseDto extends BaseDto {
 
     private int order;
 
-    private BaseDto user;
 }
