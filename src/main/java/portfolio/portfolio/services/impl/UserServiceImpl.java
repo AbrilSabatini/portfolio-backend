@@ -48,5 +48,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, UUID> implements User
             user.getProjects().forEach(project -> projectService.softDelete(project.getId()));
         }
 
+        if (user.getAboutSections() != null) {
+            user.getAboutSections().forEach(aboutSection -> aboutSection.setActive(false));
+        }
     }
 }
