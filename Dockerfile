@@ -1,4 +1,4 @@
-FROM openjdk:17-alpine AS build
+FROM alpine:latest as build
 
 RUN apk update
 RUN apk add openjdk17
