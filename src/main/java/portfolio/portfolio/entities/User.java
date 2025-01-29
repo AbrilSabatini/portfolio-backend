@@ -20,7 +20,7 @@ public class User extends Base {
     @Column(nullable = false, length = 50)
     private String jobTitle;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length = 700)
     private String about;
 
     @Column(nullable = false)
@@ -36,6 +36,7 @@ public class User extends Base {
     private String cvUrl;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy("end_date DESC")
     private List<Experience> experiences = new ArrayList<>();
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)

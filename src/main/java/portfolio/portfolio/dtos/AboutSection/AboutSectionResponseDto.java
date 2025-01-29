@@ -12,6 +12,8 @@ import portfolio.portfolio.dtos.BaseDto;
 public class AboutSectionResponseDto extends BaseDto {
     private String title;
 
+    private String description;
+
     private String iconUrl;
 
     private int order;

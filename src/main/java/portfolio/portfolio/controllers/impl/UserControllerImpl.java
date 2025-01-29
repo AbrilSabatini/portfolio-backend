@@ -1,5 +1,6 @@
 package portfolio.portfolio.controllers.impl;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.portfolio.controllers.UserController;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserControllerImpl extends BaseControllerImpl<User, UUID, UserCreateDto, UserUpdateDto, UserResponseDto> implements UserController {
     public UserControllerImpl(BaseService<User, UUID> baseService, BaseMapper<User, UserCreateDto, UserUpdateDto, UserResponseDto> baseMapper) {
         super(baseService, baseMapper);
