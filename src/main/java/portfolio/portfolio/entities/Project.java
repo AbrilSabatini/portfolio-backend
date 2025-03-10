@@ -48,6 +48,6 @@ public class Project extends Base {
     )
     private List<Tecnology> tecnologies = new ArrayList<>();
 
-    @Column(name = "image_url", length = 50)
+    @Column(name = "image_url")
     private String imageUrl;
 }
