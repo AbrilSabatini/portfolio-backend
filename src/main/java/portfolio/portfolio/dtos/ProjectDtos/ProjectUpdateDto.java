@@ -36,4 +36,7 @@ public class ProjectUpdateDto extends BaseDto {
 
     @URL
     private String imageUrl;
+
+    @URL
+    private String coverImageUrl;
 }

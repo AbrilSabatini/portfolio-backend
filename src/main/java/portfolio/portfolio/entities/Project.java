@@ -50,4 +50,7 @@ public class Project extends Base {
 
     @Column(name = "image_url")
     private String imageUrl;
+
+    @Column(name = "cover_image_url")
+    private String coverImageUrl;
 }

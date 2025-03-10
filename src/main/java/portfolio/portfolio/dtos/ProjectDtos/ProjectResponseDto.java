@@ -28,4 +28,6 @@ public class ProjectResponseDto extends BaseDto {
     private List<TecnologyResponseDto> tecnologies; // Responder con el dto de tecnologías
 
     private String imageUrl;
+
+    private String coverImageUrl;
 }
