@@ -26,4 +26,6 @@ public class ProjectResponseDto extends BaseDto {
     private SwaggerResponseDto swagger;
 
     private List<TecnologyResponseDto> tecnologies; // Responder con el dto de tecnologías
+
+    private String imageUrl;
 }

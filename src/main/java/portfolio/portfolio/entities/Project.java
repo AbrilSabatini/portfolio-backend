@@ -21,7 +21,7 @@ public class Project extends Base {
     @Column(nullable = false, length = 500)
     private String description;
 
-    @Column(name = "github_url", nullable = false, length = 50)
+    @Column(name = "github_url", length = 50)
     private String githubUrl;
 
     @Column(nullable = false)
@@ -47,4 +47,7 @@ public class Project extends Base {
             inverseJoinColumns = @JoinColumn(name = "tecnology_id", nullable = false)
     )
     private List<Tecnology> tecnologies = new ArrayList<>();
+
+    @Column(name = "image_url", length = 50)
+    private String imageUrl;
 }

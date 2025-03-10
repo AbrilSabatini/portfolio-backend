@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.URL;
 import portfolio.portfolio.dtos.BaseDto;
 import portfolio.portfolio.dtos.SwaggerDtos.SwaggerResponseDto;
 import portfolio.portfolio.entities.enums.ProjectStatus;
@@ -24,6 +25,7 @@ public class ProjectUpdateDto extends BaseDto {
     @Size(max = 500)
     private String description;
 
+    @URL
     private String githubUrl;
 
     private ProjectStatus status;
@@ -31,4 +33,7 @@ public class ProjectUpdateDto extends BaseDto {
     private SwaggerResponseDto swagger;
 
     private List<BaseDto> tecnologies;
+
+    @URL
+    private String imageUrl;
 }
