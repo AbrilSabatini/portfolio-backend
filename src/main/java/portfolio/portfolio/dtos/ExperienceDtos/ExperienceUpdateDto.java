@@ -33,4 +33,7 @@ public class ExperienceUpdateDto extends BaseDto {
 
     private LocalDate endDate;
 
+    @NotNull
+    private BaseDto user;
+
 }
