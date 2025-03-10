@@ -7,6 +7,7 @@ import portfolio.portfolio.entities.Base;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * Repositorio base genérico para las entidades.
@@ -17,26 +18,6 @@ import java.util.List;
 @NoRepositoryBean
 public interface BaseRepository<T extends Base, ID> extends JpaRepository<T, ID> {
 
-    /**
-     * Realiza una eliminación lógica de la entidad con el ID proporcionado.
-     *
-     * @param id ID de la entidad que se quiere eliminar.
-     * @throws EntityNotFoundException Si no se encuentra la entidad con el ID dado.
-     * @throws IllegalStateException Si la entidad ya está marcada como eliminada.
-     */
-    @Override
-    default void deleteById(ID id) {
-        T entity = findById(id).orElseThrow(() ->
-                new EntityNotFoundException("Entidad con ID #" + id + " no encontrada.")
-        );
-
-        if (!entity.isActive()) {
-            throw new IllegalStateException("La entidad ya está marcada como eliminada.");
-        }
-
-        entity.setActive(false);
-        save(entity);
-    }
 
     /**
      * Encuentra todas las entidades activas (no eliminadas lógicamente).
@@ -45,4 +26,11 @@ public interface BaseRepository<T extends Base, ID> extends JpaRepository<T, ID>
      */
     List<T> findAllByIsActiveTrue();
 
+    /**
+     * Encuentra una entidad por ID si está activa.
+     *
+     * @param id ID de la entidad.
+     * @return un Optional con la entidad si está activa.
+     */
+    Optional<T> findByIdAndIsActiveTrue(ID id);
 }

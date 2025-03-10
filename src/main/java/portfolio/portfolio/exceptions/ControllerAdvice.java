@@ -44,7 +44,19 @@ public class ControllerAdvice {
     public ResponseEntity<Map<String, String>> handleDataIntegrityViolationException(DataIntegrityViolationException ex) {
         Map<String, String> response = new HashMap<>();
         response.put("error", "Data Integrity Violation");
-        response.put("message", "Error de integridad referencial. Verifique los datos proporcionados.");
+
+        Throwable rootCause = ex.getRootCause();
+        String detailedMessage = (rootCause != null) ? rootCause.getMessage() : ex.getMessage();
+
+        if (detailedMessage.contains("violates foreign key constraint")) {
+            response.put("message", "No se puede eliminar o modificar un registro porque está siendo referenciado en otra tabla.");
+        } else if (detailedMessage.contains("duplicate key value")) {
+            response.put("message", "El valor ingresado ya existe en la base de datos. Verifique los datos.");
+        } else {
+            response.put("message", "Error de integridad referencial. Verifique los datos proporcionados.");
+        }
+
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
+
 }

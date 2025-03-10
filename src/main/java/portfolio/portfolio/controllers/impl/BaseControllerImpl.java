@@ -58,8 +58,8 @@ public abstract class BaseControllerImpl<E extends Base, ID, CD, UD, GD> impleme
 
     @Operation(summary = "Dar de baja una entidad")
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> delete(@PathVariable ID id) {
-        baseService.delete(id);
+    public ResponseEntity<?> softDelete(@PathVariable ID id) {
+        baseService.softDelete(id);
         return ResponseEntity.noContent().build();
     }
 

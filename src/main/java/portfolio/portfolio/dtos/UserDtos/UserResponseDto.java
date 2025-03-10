@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import portfolio.portfolio.dtos.AboutSection.AboutSectionResponseDto;
 import portfolio.portfolio.dtos.BaseDto;
 import portfolio.portfolio.dtos.ExperienceDtos.ExperienceResponseDto;
 import portfolio.portfolio.dtos.ProjectDtos.ProjectResponseDto;
@@ -31,4 +32,6 @@ public class UserResponseDto extends BaseDto {
     List<ExperienceResponseDto> experiences;
 
     List<ProjectResponseDto> projects;
+
+    List<AboutSectionResponseDto> aboutSections;
 }

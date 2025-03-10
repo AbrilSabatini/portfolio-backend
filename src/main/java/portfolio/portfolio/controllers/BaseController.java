@@ -9,6 +9,6 @@ public interface BaseController<ID, CD, UD, GD> {
     ResponseEntity<GD> getById(ID id);
     ResponseEntity<GD> create(CD createDto);
     ResponseEntity<GD> update(UD updateDto);
-    ResponseEntity<?> delete(ID id);
+    ResponseEntity<?> softDelete(ID id);
 
 }

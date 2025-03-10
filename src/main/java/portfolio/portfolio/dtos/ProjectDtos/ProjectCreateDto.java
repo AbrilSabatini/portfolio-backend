@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.URL;
 import portfolio.portfolio.dtos.BaseDto;
 import portfolio.portfolio.dtos.SwaggerDtos.SwaggerCreateDto;
 import portfolio.portfolio.entities.enums.ProjectStatus;
@@ -25,6 +26,7 @@ public class ProjectCreateDto {
     @NotBlank
     private String description;
 
+    @URL
     private String githubUrl;
 
     @NotNull
@@ -37,4 +39,7 @@ public class ProjectCreateDto {
 
     @NotNull
     private BaseDto user;
+
+    @URL
+    private String imageUrl;
 }

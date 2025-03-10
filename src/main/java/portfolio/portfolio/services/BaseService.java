@@ -13,6 +13,6 @@ public interface BaseService <T extends Base, ID> {
 
     T update(T request);
 
-    void delete(ID id);
+    void softDelete(ID id);
 
 }
