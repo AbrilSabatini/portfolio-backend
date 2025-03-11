@@ -21,7 +21,7 @@ public class Project extends Base {
     @Column(nullable = false, length = 500)
     private String description;
 
-    @Column(name = "github_url", length = 50)
+    @Column(name = "github_url", nullable = true)
     private String githubUrl;
 
     @Column(nullable = false)
