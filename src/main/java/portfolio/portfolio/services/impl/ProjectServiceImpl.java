@@ -61,6 +61,10 @@ public class ProjectServiceImpl extends BaseServiceImpl<Project, UUID> implement
         if (request.getImageUrl() != null) {
             project.setImageUrl(request.getImageUrl());
         }
+        if (request.getCoverImageUrl() != null) {
+            project.setCoverImageUrl(request.getCoverImageUrl());
+        }
+
 
         if (request.getTecnologies() != null && !request.getTecnologies().isEmpty()) {
             Set<Tecnology> tecnologies = request.getTecnologies().stream()

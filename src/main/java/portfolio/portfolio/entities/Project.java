@@ -21,7 +21,7 @@ public class Project extends Base {
     @Column(nullable = false, length = 500)
     private String description;
 
-    @Column(name = "github_url", length = 50)
+    @Column(name = "github_url", nullable = true)
     private String githubUrl;
 
     @Column(nullable = false)
@@ -48,6 +48,9 @@ public class Project extends Base {
     )
     private List<Tecnology> tecnologies = new ArrayList<>();
 
-    @Column(name = "image_url", length = 50)
+    @Column(name = "image_url")
     private String imageUrl;
+
+    @Column(name = "cover_image_url")
+    private String coverImageUrl;
 }

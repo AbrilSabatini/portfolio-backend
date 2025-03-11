@@ -42,4 +42,7 @@ public class ProjectCreateDto {
 
     @URL
     private String imageUrl;
+
+    @URL
+    private String coverImageUrl;
 }
