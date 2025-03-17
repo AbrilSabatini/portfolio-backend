@@ -9,9 +9,7 @@ import portfolio.portfolio.repositories.ProjectRepository;
 import portfolio.portfolio.repositories.TecnologyRepository;
 import portfolio.portfolio.services.ProjectService;
 
-import java.util.ArrayList;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -79,4 +77,24 @@ public class ProjectServiceImpl extends BaseServiceImpl<Project, UUID> implement
         return projectRepository.save(project);
     }
 
+    @Override
+    public Project addTecnologies(Project request) {
+        // Obtener el proyecto
+        Project project = this.getById(request.getId());
+
+        // Obtener las tecnologías del proyecto
+        Set<Tecnology> projestsTecnologies = new HashSet<>(project.getTecnologies());
+
+        // Obtener las tecnologías de la request
+        Set<Tecnology> newTecnologies = request.getTecnologies().stream()
+                .map(tecnology -> tecnologyRepository.findByIdAndIsActiveTrue(tecnology.getId())
+                        .orElseThrow(() -> new EntityNotFoundException("Tecnology con ID #" + tecnology.getId() + " no encontrada.")))
+                .collect(Collectors.toSet());
+
+        projestsTecnologies.addAll(newTecnologies);
+
+        project.setTecnologies(new ArrayList<>(projestsTecnologies));
+
+        return projectRepository.save(project);
+    }
 }
