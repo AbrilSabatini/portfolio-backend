@@ -22,7 +22,6 @@ public class AboutSectionUpdateDto extends BaseDto {
     private String description;
 
     @URL
-    @NotBlank
     private String iconUrl;
 
     @NotNull

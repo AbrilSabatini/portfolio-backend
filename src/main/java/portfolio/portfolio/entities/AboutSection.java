@@ -35,7 +35,7 @@ public class AboutSection extends Base {
     @Column()
     private String description;
 
-    @Column(name = "icon_url", nullable = false)
+    @Column(name = "icon_url")
     private String iconUrl;
 
     /**

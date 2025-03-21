@@ -22,7 +22,6 @@ public class AboutSectionCreateDto {
     private String description;
 
     @URL
-    @NotBlank
     private String iconUrl;
 
     @NotNull
