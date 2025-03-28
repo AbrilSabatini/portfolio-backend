@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.validator.constraints.URL;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -18,4 +19,8 @@ public class TecnologyCreateDto {
 
     @NotNull
     private Boolean isFramework;
+
+    @NotNull
+    @URL
+    private String urlImage;
 }

@@ -1,25 +1,16 @@
 package portfolio.portfolio.dtos.TecnologyDtos;
 
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.validator.constraints.URL;
 import portfolio.portfolio.dtos.BaseDto;
 
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TecnologyUpdateDto extends BaseDto {
-    @NotBlank
+public class TecnologyResponseShortDto extends BaseDto {
     private String name;
 
-    @NotNull
     private Boolean isFramework;
-
-    @NotNull
-    @URL
-    private String urlImage;
 }

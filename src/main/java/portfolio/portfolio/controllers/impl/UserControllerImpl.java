@@ -1,16 +1,11 @@
 package portfolio.portfolio.controllers.impl;
 
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import portfolio.portfolio.controllers.UserController;
-import portfolio.portfolio.dtos.UserDtos.UserCreateDto;
-import portfolio.portfolio.dtos.UserDtos.UserResponseDto;
-import portfolio.portfolio.dtos.UserDtos.UserShortDto;
-import portfolio.portfolio.dtos.UserDtos.UserUpdateDto;
+import portfolio.portfolio.dtos.UserDtos.*;
 import portfolio.portfolio.entities.User;
 import portfolio.portfolio.mappers.BaseMapper;
 import portfolio.portfolio.mappers.UserMapper;
@@ -38,5 +33,13 @@ public class UserControllerImpl extends BaseControllerImpl<User, UUID, UserCreat
     @GetMapping("/names")
     public ResponseEntity<List<UserShortDto>> getUsersName() {
         return ResponseEntity.ok(userMapper.userShortDtos(userService.getAll()));
+    }
+
+    @Override
+    @Operation(summary = "Añadir habilidades al usuario")
+    @PatchMapping("/add-skills")
+    public ResponseEntity<UserResponseDto> addSkills(@RequestBody @Valid UserAddSkillDto request) {
+        User entity = userMapper.addSkillDtoToEntity(request);
+        return ResponseEntity.ok(userMapper.toDto(userService.addSkill(entity)));
     }
 }

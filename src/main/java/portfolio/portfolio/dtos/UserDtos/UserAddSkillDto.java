@@ -1,4 +1,4 @@
-package portfolio.portfolio.dtos.TecnologyDtos;
+package portfolio.portfolio.dtos.UserDtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -6,13 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import portfolio.portfolio.dtos.BaseDto;
 
+import java.util.List;
+
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class TecnologyResponseDto extends BaseDto {
-    private String name;
+public class UserAddSkillDto extends BaseDto {
 
-    private Boolean isFramework;
+    private List<BaseDto> skills;
 
-    private String urlImage;
 }

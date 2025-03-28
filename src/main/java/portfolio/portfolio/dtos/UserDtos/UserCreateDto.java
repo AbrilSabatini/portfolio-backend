@@ -8,6 +8,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.URL;
+import portfolio.portfolio.dtos.BaseDto;
+
+import java.util.List;
 
 @Getter @Setter
 @NoArgsConstructor
@@ -38,4 +41,6 @@ public class UserCreateDto {
     @URL
     @NotBlank
     private String cvUrl;
+
+    private List<BaseDto> skills;
 }

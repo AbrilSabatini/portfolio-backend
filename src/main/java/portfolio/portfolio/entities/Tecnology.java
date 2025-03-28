@@ -20,4 +20,6 @@ public class Tecnology extends Base {
     @Convert(converter = org.hibernate.type.TrueFalseConverter.class)
     private Boolean isFramework;
 
+    @Column(name = "url_image")
+    private String urlImage;
 }

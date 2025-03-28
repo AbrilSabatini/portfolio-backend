@@ -45,4 +45,12 @@ public class User extends Base {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("order_index ASC")
     private List<AboutSection> aboutSections = new ArrayList<>();
+
+    @ManyToMany(cascade = {CascadeType.MERGE})
+    @JoinTable(
+            name = "user_skill",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "tecnology_id", nullable = false)
+    )
+    private List<Tecnology> skills = new ArrayList<>();
 }

@@ -8,6 +8,7 @@ import portfolio.portfolio.dtos.AboutSection.AboutSectionResponseDto;
 import portfolio.portfolio.dtos.BaseDto;
 import portfolio.portfolio.dtos.ExperienceDtos.ExperienceResponseDto;
 import portfolio.portfolio.dtos.ProjectDtos.ProjectResponseDto;
+import portfolio.portfolio.dtos.TecnologyDtos.TecnologyResponseDto;
 
 import java.util.List;
 
@@ -34,4 +35,6 @@ public class UserResponseDto extends BaseDto {
     List<ProjectResponseDto> projects;
 
     List<AboutSectionResponseDto> aboutSections;
+
+    List<TecnologyResponseDto> skills;
 }
