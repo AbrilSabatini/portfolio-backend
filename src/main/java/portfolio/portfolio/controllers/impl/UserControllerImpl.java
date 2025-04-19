@@ -17,7 +17,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/users")
-@CrossOrigin(origins = "${cors.allowedOrigins}")
+@CrossOrigin(origins = {"${cors.allowedOrigins}", "${cors.allowedOrigins2}"})
 public class UserControllerImpl extends BaseControllerImpl<User, UUID, UserCreateDto, UserUpdateDto, UserResponseDto> implements UserController {
     private UserMapper userMapper;
     private UserService userService;

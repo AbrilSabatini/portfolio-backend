@@ -10,6 +10,7 @@ public class PortfolioApplication {
 		SpringApplication.run(PortfolioApplication.class, args);
 		System.out.println("Running");
 		System.out.println("Origenes: " + System.getenv("CORS_ALLOWED_ORIGINS"));
+		System.out.println("Origenes: " + System.getenv("CORS_ALLOWED_ORIGINS_2"));
 
 	}
 
