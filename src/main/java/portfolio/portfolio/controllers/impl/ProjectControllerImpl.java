@@ -3,10 +3,7 @@ package portfolio.portfolio.controllers.impl;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import portfolio.portfolio.controllers.ProjectController;
 import portfolio.portfolio.dtos.ProjectDtos.ProjectAddTecnologyDto;
 import portfolio.portfolio.dtos.ProjectDtos.ProjectCreateDto;
@@ -22,6 +19,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/projects")
+@CrossOrigin(origins = {"${cors.allowedOrigins}", "${cors.allowedOrigins2}"})
 public class ProjectControllerImpl extends BaseControllerImpl<Project, UUID, ProjectCreateDto, ProjectUpdateDto, ProjectResponseDto> implements ProjectController {
 
     private final ProjectMapper projectMapper;

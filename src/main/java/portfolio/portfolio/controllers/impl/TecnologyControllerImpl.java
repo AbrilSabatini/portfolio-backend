@@ -1,5 +1,6 @@
 package portfolio.portfolio.controllers.impl;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.portfolio.controllers.TecnologyController;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/tecnologies")
+@CrossOrigin(origins = {"${cors.allowedOrigins}", "${cors.allowedOrigins2}"})
 public class TecnologyControllerImpl extends BaseControllerImpl<Tecnology, UUID, TecnologyCreateDto, TecnologyUpdateDto, TecnologyResponseShortDto> implements TecnologyController {
     public TecnologyControllerImpl(BaseService<Tecnology, UUID> baseService, BaseMapper<Tecnology, TecnologyCreateDto, TecnologyUpdateDto, TecnologyResponseShortDto> baseMapper) {
         super(baseService, baseMapper);

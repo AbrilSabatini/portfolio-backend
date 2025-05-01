@@ -1,5 +1,6 @@
 package portfolio.portfolio.controllers.impl;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.portfolio.controllers.ExperienceController;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/experiences")
+@CrossOrigin(origins = {"${cors.allowedOrigins}", "${cors.allowedOrigins2}"})
 public class ExperienceControllerImpl extends BaseControllerImpl<Experience, UUID, ExperienceCreateDto, ExperienceUpdateDto, ExperienceResponseDto> implements ExperienceController {
     public ExperienceControllerImpl(BaseService<Experience, UUID> baseService, BaseMapper<Experience, ExperienceCreateDto, ExperienceUpdateDto, ExperienceResponseDto> baseMapper) {
         super(baseService, baseMapper);

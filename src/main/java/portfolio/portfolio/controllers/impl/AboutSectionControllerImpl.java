@@ -1,5 +1,6 @@
 package portfolio.portfolio.controllers.impl;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import portfolio.portfolio.controllers.AboutSectionController;
@@ -14,6 +15,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/about-sections")
+@CrossOrigin(origins = {"${cors.allowedOrigins}", "${cors.allowedOrigins2}"})
 public class AboutSectionControllerImpl extends BaseControllerImpl<AboutSection, UUID, AboutSectionCreateDto, AboutSectionUpdateDto, AboutSectionResponseDto> implements AboutSectionController {
     public AboutSectionControllerImpl(BaseService<AboutSection, UUID> baseService, BaseMapper<AboutSection, AboutSectionCreateDto, AboutSectionUpdateDto, AboutSectionResponseDto> baseMapper) {
         super(baseService, baseMapper);
